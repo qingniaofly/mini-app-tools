@@ -1,6 +1,6 @@
 const E_NOVEL_EVENT = require('./type')
 const { IpcMainEvent } = require('../../event')
-const thirdPartySDK = require('../../../ThirdPartySDK')
+const thirdPartySDK = require('thirdparty-sdk')
 const downloadUtil = require('../../util/download')
 
 class NovelService {

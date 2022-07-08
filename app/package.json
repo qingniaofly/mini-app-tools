@@ -1,7 +1,7 @@
 {
   "name": "electron-app",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A minimal Electron application tools",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -12,6 +12,19 @@
     "main:build": "cd ../pages/main && yarn build"
   },
   "author": "yc.tao",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qingniaofly/mini-app-tools.git"
+  },
+  "keywords": [
+    "mini-app-tools",
+    "node",
+    "javascript"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qingniaofly/mini-app-tools/issues"
+  },
   "build": {
     "appId": "com.yctao.electron.app",
     "mac": {
@@ -30,15 +43,10 @@
     }
   },
   "dependencies": {
-    "axios": "^0.27.2",
     "bufferhelper": "^0.2.1",
-    "cheerio": "^1.0.0-rc.10",
-    "form-data": "^4.0.0",
-    "fs-extra": "^10.0.1",
     "iconv-lite": "^0.6.3",
     "loadsh": "^0.0.4",
-    "node-fetch": "^3.2.4",
-    "qs": "^6.11.0"
+    "thirdparty-sdk": "^0.0.1"
   },
   "devDependencies": {
     "electron": "^17.2.0",

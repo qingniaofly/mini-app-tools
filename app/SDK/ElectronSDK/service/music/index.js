@@ -1,6 +1,6 @@
 const E_MUSIC_EVENT = require('./type')
 const { IpcMainEvent } = require('../../event')
-const thirdPartySDK = require('../../../ThirdPartySDK')
+const thirdPartySDK = require('thirdparty-sdk')
 
 class MusicService {
     initEvent = false

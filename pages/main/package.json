@@ -8,10 +8,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "eslint": "eslint src --ext .ts",
     "help": "webpack --help",
-    "start": "webpack-dev-server --config ./webpack/dev.config.js --port 8099",
-    "dev": "webpack --config ./webpack/dev.config.js --progress --color",
-    "dev:watch": "node ./node_modules/webpack/bin/webpack.js --config ./webpack/dev.config.js --progress --color --watch",
-    "build": "node ./node_modules/webpack/bin/webpack.js --config ./webpack/pro.config.js --progress"
+    "start": "yarn && webpack-dev-server --config ./webpack/dev.config.js --port 8099",
+    "dev": "yarn && webpack --config ./webpack/dev.config.js --progress --color",
+    "dev:watch": "yarn && node ./node_modules/webpack/bin/webpack.js --config ./webpack/dev.config.js --progress --color --watch",
+    "build": "yarn && node ./node_modules/webpack/bin/webpack.js --config ./webpack/pro.config.js --progress"
   },
   "author": "",
   "license": "ISC",
