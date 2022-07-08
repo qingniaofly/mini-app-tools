@@ -1,0 +1,9 @@
+
+const E_MUSIC_EVENT = {
+    GET_LIST_BY_TAG: 'GET_LIST_BY_TAG',
+    GET_MUSIC_INFO_BY_ID: 'GET_MUSIC_INFO_BY_ID',
+    SEARCH: 'SEARCH',
+}
+
+
+module.exports = E_MUSIC_EVENT

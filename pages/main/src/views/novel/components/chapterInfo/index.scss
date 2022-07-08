@@ -1,0 +1,48 @@
+.novel-chapter-container {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    .novel-chapter-title {
+        border-bottom: 1px dashed #88C6E5;
+        padding-bottom: 5px;
+        h1 {
+            font: 25px/35px ºÚÌå;
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        .btns {
+            text-align: center;
+            padding-top: 5px;
+            .link {
+                color: #085308;
+                font-size: 14px;
+                margin-left: 10px;
+                margin-right: 10px;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .novel-chapter {
+        flex: 1;
+        height: 100%;
+        overflow: auto;
+
+        .novel-chapter-content {
+            font-family: ·½ÕýÆôÌå¼òÌå, "Microsoft YaHei", Î¢ÈíÑÅºÚ, ËÎÌå;
+            font-size: 19pt;
+            letter-spacing: 0.2em;
+            line-height: 150%;
+            padding-top: 15px;
+            width: 85%;
+            margin: auto;
+        }
+    }
+}

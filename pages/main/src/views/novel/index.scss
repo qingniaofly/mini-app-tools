@@ -1,0 +1,26 @@
+.novel-wrapper {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    .novel-filer-container {
+        height: 60px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .novel-content-container {
+        background-color: #e9faff;
+        color: #555;
+        font-family: ËÎÌå;
+        font-size: 12px;
+
+        flex: 1;
+        height: 0;
+        padding-bottom: 6px;
+    }
+}

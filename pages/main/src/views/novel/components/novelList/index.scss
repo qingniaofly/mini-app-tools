@@ -1,0 +1,45 @@
+.novel-list-container {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+        background-color: #f6f8fe;
+        border-bottom: 1px solid #dddddd;
+        font-size: 14px;
+        font-weight: bold;
+        height: 30px;
+        line-height: 30px;
+        overflow: hidden;
+        padding: 0 0 0 10px;
+    }
+
+    .novel-list {
+        flex: 1;
+        height: 100%;
+        overflow: auto;
+
+        ul {
+            padding: 0 10px;
+
+            li {
+                float: left;
+                color: #b3b3b3;
+                padding: 5px 0px 0px 0px;
+                border-bottom: solid 1px #dddddd;
+                height: 25px;
+                width: 20%;
+                line-height: 25px;
+                overflow: hidden;
+                display: inline-block;
+
+                .link {
+                    color: rgb(0, 0, 238);
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

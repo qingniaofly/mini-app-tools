@@ -1,0 +1,140 @@
+@import "./default.scss";
+@import "./variable.scss";
+
+@charset "UTF-8";
+
+html,
+body,
+#app {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: $--fontCn;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    color: $--color-text-primary;
+    background: $--background-color-gray !important;
+
+    &.en {
+        font-family: $--fontEn;
+    }
+}
+
+label {
+    color: $--color-text-bold;
+}
+
+//全局滚动条
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: $--background-color-gray;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba($--color-text-secondary, 0.2);
+    border-radius: $--border-radius-base;
+}
+
+
+.electron-ui-link {
+    color: $--color-primary;
+}
+
+.electron-ui-link-disabled {
+    color: $--color-text-tertiary;
+    &:hover {
+        color: $--color-text-tertiary;
+    }
+}
+
+.electron-ui-breadcrumb-link {
+    color: $--color-text-tertiary;
+    a {
+        color: $--color-text-tertiary !important;
+    }
+}
+
+
+// 主色
+.electron-ui-color-primary {
+    color: $--color-primary !important;
+    &:hover {
+        color: $--color-primary;
+    }
+}
+
+// 警告色
+.electron-ui-color-warning {
+    color: $--color-accent2 !important;
+    &:hover {
+        color: $--color-accent2;
+    }
+}
+
+// 错误色
+.electron-ui-color-error {
+    color: $--color-accent2;
+    &:hover {
+        color: $--color-accent2;
+    }
+}
+
+// 灰色
+.electron-ui-color-gray {
+    color: $--color-text-tertiary !important;
+    &:hover {
+        color: $--color-text-tertiary;
+    }
+}
+
+// 注释颜色
+.electron-ui-color-notes {
+    color: $--color-text-fourth !important;
+    &:hover {
+        color: $--color-text-fourth;
+    }
+}
+
+
+
+#root {
+    height: 100%;
+    overflow-y: hidden;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #c3c3c3;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #ADADAD;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #888888;
+}
+
+.hide {
+    display: none;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

@@ -1,0 +1,266 @@
+
+.music-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    // https://www.zhangxinxu.com/study/201008/css3-color-names.php
+    // https://www.cnblogs.com/qbqbk/p/12166447.html
+    // background: rgb(240,230,140);
+    position: relative;
+    color: #404040;
+
+    .music-left-container {
+        width: 240px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid #eee;
+
+        .music-header {
+            height: 80px;
+            border-bottom: 1px solid #eee;
+
+            .music-source-container {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                font-size: 12px;
+
+                .music-filter-container {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 4px 6px;
+                }
+
+                .music-heart {
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 2px;
+                }
+
+                .music-search-container {
+                    height: 24px;
+                    display: flex;
+                    flex-direction: row;
+                    padding: 4px 6px 8px;
+                    align-items: center;
+
+                    .music-list-search-input {
+                        flex: 1;
+                        // width: 120px;
+                        position: relative;
+                        display: flex;
+
+                        input {
+                            width: 130px;
+                            height: 18px;
+                            border: 1px solid #888;
+                            border-right: 0;
+                            border-top-left-radius: 3px;
+                            border-bottom-left-radius: 3px;
+                        }
+
+                        .music-list-action-search {
+                            border: 1px solid #888;
+                            border-top-right-radius: 3px;
+                            border-bottom-right-radius: 3px;
+                            margin-left: 0;
+                            border-left: 0;
+                        }
+                    }
+
+                    .music-list-action {
+                        min-width: 16px;
+                        margin-left: 4px;
+                        font-size: 12px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+
+                        img {
+                            width: 13px;
+                            height: 16px;
+                        }
+                    }
+                }
+
+                .music-list-action-container {
+                    height: 24px;
+                    display: flex;
+                    flex-direction: row;
+                    padding: 4px 6px;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    span {
+                        min-width: 16px;
+
+                        img {
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .music-list-content {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+
+            &.music-list-loading {
+                .music-list {
+                    display: none;
+                }
+            }
+
+            &.music-list-loading-next-page {
+                padding-bottom: 16px;
+
+                .music-list-loading-container {
+                    top: auto;
+                    left: auto;
+                    left: auto;
+                    height: 16px;
+                }
+            }
+
+            .music-list-loading-container {
+                position: absolute;
+                z-index: 999;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+
+                .music-list-loading {
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+        }
+    }
+
+    .music-right-container {
+        flex: 1;
+        //    background-color: #000;
+
+        .music-playing-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+
+            audio {
+                display: none;
+            }
+
+            .music-info-container {
+                flex: 1;
+                display: flex;
+                flex-direction: row;
+                padding: 5px 20px 0;
+                padding-right: 5px;
+                height: 0;
+
+                .music-info-cover {
+                    padding: 0 10px;
+                    width: 40%;
+
+                    img {
+                        width: 100%;
+                        height: 50%;
+                    }
+                }
+
+                .music-info-detail {
+                    padding-top: 8px;
+                    display: flex;
+                    flex-direction: column;
+
+                    span {
+                        margin: 5px 0;
+                    }
+
+                }
+
+                .music-info-lyric {
+                    flex: 1;
+                    padding-bottom: 10px;
+
+                    .lyric-item {
+                        font-size: 16px;
+                        margin-bottom: 15px;
+                        text-align: center;
+                    }
+
+                    .lyric-highlight {
+                        color: red;
+                        font-size: 24px;
+                    }
+                }
+            }
+
+
+
+            .music-play-list-container {
+                position: absolute;
+                right: 0;
+                width: 240px;
+                height: calc(100% - 67px);
+                background: #fff;
+                z-index: 10;
+                border: 1px solid #eee;
+
+                .music-play-list {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+
+                    .music-play-list-header {
+                        height: 30px;
+                        border-bottom: 1px solid #eee;
+                        padding-right: 50px;
+                        padding-left: 10px;
+                        font-size: 14px;
+
+                        .music-play-list-title {
+                            width: 100%;
+                            line-height: 30px;
+                        }
+
+                        .music-play-list-close {
+                            position: absolute;
+                            right: 7px;
+                            top: 7px;
+
+                            img {
+                                width: 16px;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                    .music-play-list-content {
+                        flex: 1;
+                        // overflow: hidden;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+
+.common-loading {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    background-size: contain;
+    vertical-align: sub;
+    background-repeat: no-repeat;
+    -webkit-animation: animation-loading 1s infinite linear;
+    animation: animation-loading 1s infinite linear;
+}
+
+@-webkit-keyframes animation-loading {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animation-loading {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

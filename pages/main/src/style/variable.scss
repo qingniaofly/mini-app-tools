@@ -1,0 +1,99 @@
+
+@charset "UTF-8";
+
+//-----------------------------------------------------
+// variables scss
+//-----------------------------------------------------
+
+/* 动画
+-------------------------- */
+$--all-transition: all .3s cubic-bezier(.645,.045,.355,1) !default;
+
+/* grid
+-------------------------- */
+$breakpoints: (
+    xs : 0,
+    sm : 576px,
+    md : 768px,
+    lg : 992px,
+    xl : 1200px
+) !default;
+
+/* 最大宽度
+-------------------------- */
+$--max-width: 1200px !default;
+$--max-sidebar: 250px !default;
+$--mini-sidebar: 80px !default;
+$--menu-height: 60px !default;
+$--head-top-menu-height: 79px !default;
+$--footer-height: 60px !default;
+
+/* font相关
+----------------------------------------------------- */
+$--fontSize:                       14px !default; //正文
+$--fontSize-large:                 20px !default; //标题
+$--fontSize-big:                   16px !default; //小标题
+$--fontSize-small:                 12px !default; //辅助文字
+$--fontSize-medium:                13px !default; //辅助文字
+$--fontSize-sum:                   30px !default; //辅助文字
+$--fontLineHeight:                 1.5 !default; //统计数字
+// 苹方, 冬青黑体，微软雅黑UI（win8.1+），微软雅黑，思源黑体（安卓）
+$--fontCn:                          "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Source Han Sans CN" sans-serif !default;
+// 前两个为safari chrome, ios4.0+, ios4.0-, Android 4.0+, Android 4.0-, windows&windows Phone,
+$--fontEn:                         -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Roboto, "Droid Sans", "Seogoe UI", Arial !default;
+
+/* 背景色，文本色，边框色，链接色
+---------------------------------------------------- */
+$--color-primary:                   hsl(220, 100%, 65%) !default; //#6a95e8
+$--color-lighten:                   hsl(220, 100%, 74%) !default;
+$--color-lighten2:                  hsl(221, 100%, 96%) !default;
+$--color-accent:                    #fca100 !default; //弹调色
+$--color-accent2:                   #f77f84 !default; //弹调色
+$--color-white:                     #FFFFFF !default;
+// $--color-lighten-accent:            mix($--color-white, $--color-primary, 20%);
+$--color-lighten-accent:            hsl(227, 100%, 98%)!default;//#F6F8FF;; //hover
+$--color-error:                     $--color-accent2 !default;
+//text
+$--color-text-bold:                 hsl(0, 0%, 0%) !default;
+$--color-text-primary:              hsla(0, 0%, 0%, .85) !default;
+$--color-text-secondary:            hsla(0, 0%, 0%, .7) !default;
+$--color-text-tertiary:             hsla(0, 0%, 0%, .5)  !default;
+$--color-text-fourth:               hsla(0, 0%, 0%, .2)  !default;
+$--color-text-fifth:               hsla(0, 0%, 0%, .06)  !default;
+$--color-text-placeholder:          #eaeaea !default;
+$--color-text-accent:               #417ff9 !default;
+
+//border
+$--border-color-base:               #eee !default;
+$--border-radius-base:               4px !default;
+$--border-color-antd:               #d9d9d9 !default;
+$--border-color-ghost:              #1f1c1c !default;
+
+// Background
+$--background-color-hover:          $--color-lighten-accent;
+$--background-color-active:         $--color-primary;
+$--background-color-gray:           #fafafa !default; // 背景色
+$--background-color-header:         #f7f7f7 !default; // 背景色
+$--background-color-drag:           #fafafa !default; // 背景色
+$--background-color-white:          #fff !default; // 背景色
+$--background-color-th:             #fafafa  !default; // 表格头背景色  使用具体色值，防止表格固定列时出现因颜色透明出现叠加
+$--background-lighten-btn:           $--color-lighten2  !default; // 表格头背景色
+
+/* Link
+-------------------------- */
+$--link-color:                      $--color-text-accent !default;
+$--link-hover-color:                $--color-lighten !default;
+
+/* shadow
+-------------------------- */
+$--shadow-color-base:               hsla(0, 0%, 0%, 0.1)  !default;
+$--drawer-mask-bg:                  hsla(0, 0, 100%, 0.1) !default;
+
+// 交互配色
+// 警告，错误，成功，提示
+//-----------------------------------------------------
+// 每个变量都有三个颜色值，分别为：文本色，背景色，边框色
+$--warningColor:               #514721 #FFF6BF #FFD324 !default;
+$--errorColor:                 #f77f84 #f77f84 #f77f84!default;
+$--successColor:               #4ac214 #4ac214 #4ac214!default;
+$--infoColor:                  #205791 #D5EDF8 #92CAE4 !default;
