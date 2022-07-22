@@ -1,45 +1,45 @@
-import React, { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom"
-import { storeAction } from "./store/actions"
-import { SDK, SDKBox } from "./SDK"
-import Music from "./views/music"
-import Novel from "./views/novel"
-import { IRootState } from "./store/type"
-import "./style/common.scss"
-import "@babel/polyfill"
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
+import { storeAction } from './store/actions'
+import { SDK, SDKBox } from './SDK'
+import Music from './views/music'
+import Novel from './views/novel'
+import Image from './views/image'
+import { IRootState } from './store/type'
+import './style/common.scss'
+import '@babel/polyfill'
 
 const Home = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         setTimeout(() => {
-            dispatch(storeAction.test("小王12"))
+            dispatch(storeAction.test('小王12'))
         }, 3000)
     }, [])
     return <div>hello world</div>
 }
 
-
 const routeConfig = [
     {
-        path: "about",
+        path: 'about',
         element: <Music />,
-        cache: false
+        cache: false,
     },
     {
-        path: "music",
+        path: 'music',
         element: <Music />,
-        cache: false
+        cache: false,
     },
     {
-        path: "novel",
+        path: 'novel',
         element: <Novel />,
-        cache: false
+        cache: false,
     },
     {
-        path: "/",
+        path: '/',
         element: <Home />,
-        cache: false
+        cache: false,
     },
 ]
 
@@ -49,14 +49,14 @@ function MainRoute() {
 
     console.log(`MainRoute pathname=${pathname}`)
 
-    const cacheRoutes = routeConfig.filter(r => r.cache)
-    const routes = routeConfig.filter(r => !r.cache)
+    const cacheRoutes = routeConfig.filter((r) => r.cache)
+    const routes = routeConfig.filter((r) => !r.cache)
     return (
         <>
             {cacheRoutes.map((r, index) => {
                 const visible = pathname.indexOf(r.path) > -1
                 return (
-                    <div key={index} style={{ display: visible ? "" : "none" }}>
+                    <div key={index} style={{ display: visible ? '' : 'none' }}>
                         {r.element}
                     </div>
                 )
@@ -76,7 +76,7 @@ const About = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         setTimeout(() => {
-            dispatch(storeAction.test("小张"))
+            dispatch(storeAction.test('小张'))
         }, 3000)
     }, [])
     return <div>About</div>
@@ -111,9 +111,10 @@ const App = () => {
         }
     }, [])
     return (
-        <div data-test={test} className="app-wrapper" style={{ width: "100%", height: "100%" }}>
+        <div data-test={test} className="app-wrapper" style={{ width: '100%', height: '100%' }}>
             <Routes>
                 <Route path={`about`} element={<About />} />
+                <Route path={`image`} element={<Image />} />
                 <Route path={`music`} element={<Music />} />
                 <Route path={`/novel/*`} element={<Novel />}></Route>
                 <Route path={`/`} element={<Home />} />
