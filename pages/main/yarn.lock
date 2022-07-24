@@ -4127,6 +4127,11 @@ react-dom@^18.0.0:
     loose-envify "^1.1.0"
     scheduler "^0.22.0"
 
+react-image-viewers@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-image-viewers/-/react-image-viewers-1.0.1.tgz#9141ac089baf7aba71e8f1fe995b1e6e30cf92dc"
+  integrity sha512-9j3R1hw+RmJE10EaMl5qrzTEdQBIOAP2xaAjaYa3ZkvITYvXC/iEP9LdOUOWDsiaqXqXzs33Pu/fzxPOI/BAFw==
+
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
