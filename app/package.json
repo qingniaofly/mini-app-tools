@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "build": "electron-builder --win --x64",
-    "dev": "yarn main:dev && yarn copy && yarn start",
+    "dev": "yarn && yarn main:dev && yarn copy && yarn start",
     "copy": "node ./scripts/copy.js",
     "main:dev": "cd ../pages/main && yarn dev",
     "main:build": "cd ../pages/main && yarn build"
