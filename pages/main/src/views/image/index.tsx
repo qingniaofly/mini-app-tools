@@ -89,6 +89,10 @@ function Image() {
                         console.log(`ReactImageViewer Image StyleChange:: options=${JSON.stringify(opts)}`)
                         setImageStyle(opts)
                     }}
+                    config={{
+                        perRotate: 10,
+                        translateTouchType: 'mousewheel',
+                    }}
                 />
                 {loading && (
                     <div className="image-loading-container">
