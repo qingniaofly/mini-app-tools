@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import { storeAction } from './store/actions'
-import { SDK, SDKBox } from './SDK'
+import { SDKBox } from './SDK'
 import Music from './views/music'
 import Novel from './views/novel'
 import Image from './views/image'
@@ -99,7 +99,7 @@ const App = () => {
     // }, [])
 
     useEffect(() => {
-        SDK.init()
+        
         const onRouteChange = (_, data) => {
             console.log(`E_GLOBAL_EVENT.ROUTE_CHANGE data=${JSON.stringify(data)}`)
             navigate(data?.url)
