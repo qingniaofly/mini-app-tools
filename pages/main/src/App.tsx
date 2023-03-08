@@ -111,7 +111,7 @@ const App = () => {
         }
     }, [])
     return (
-        <div data-test={test} className="app-wrapper" style={{ width: '100%', height: '100%' }}>
+        <div data-test={test} className="app-wrapper allow-select-text" style={{ width: '100%', height: '100%' }}>
             <Routes>
                 <Route path={`about`} element={<About />} />
                 <Route path={`image`} element={<Image />} />

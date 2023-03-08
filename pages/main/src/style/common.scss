@@ -138,3 +138,7 @@ label {
 .cursor-pointer {
     cursor: pointer;
 }
+
+.allow-select-text {
+    user-select: text;
+}
