@@ -21,6 +21,7 @@ export const SDK = {
             routeService: new RouteService(electronSDK),
             novelService: new NovelService(electronSDK)
         }
+        ElectronBox.set(electronSDK)
         SDKBox.set(sdk)
     },
 

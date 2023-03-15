@@ -6,10 +6,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-
 module.exports = {
     entry: {
-        main: path.resolve(__dirname, '../src/index.tsx')
+        main: path.resolve(__dirname, '../src/index.tsx'), // 主渲染进程
+        worker: path.resolve(__dirname, '../src/worker.tsx'), // 任务进程
     },
     output: {
         filename: '[name].js',
@@ -18,8 +18,8 @@ module.exports = {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
-        fallback: { 
-            "path": require.resolve("path-browserify") 
+        fallback: {
+            path: require.resolve('path-browserify'),
         },
         alias: {
             // sdk: path.resolve(__dirname, './service'),
@@ -32,15 +32,15 @@ module.exports = {
                 test: /\.(js|mjs|jsx|ts|tsx)?$/,
                 use: [
                     {
-                        loader:'babel-loader',
+                        loader: 'babel-loader',
                         options: {
                             // cacheDirectory: true,
                             presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
                             // plugins: ['@babel/plugin-transform-runtime'],
-                            compact: process.env.NODE_ENV === 'production'
-                        }
-                    }
-                ]
+                            compact: process.env.NODE_ENV === 'production',
+                        },
+                    },
+                ],
             },
             // {
             //     test: /\.(ts|tsx)?$/,
@@ -64,7 +64,7 @@ module.exports = {
                         // }
                     },
                     'css-loader',
-                ]
+                ],
             },
             {
                 test: /\.less$/,
@@ -81,10 +81,10 @@ module.exports = {
                     {
                         loader: 'less-loader',
                         options: {
-                            sourceMap: false
+                            sourceMap: false,
                         },
-                    }
-                ]
+                    },
+                ],
             },
             {
                 test: /\.scss$/,
@@ -96,21 +96,21 @@ module.exports = {
                         // }
                     },
                     {
-                        loader: 'css-loader'
+                        loader: 'css-loader',
                     },
                     {
-                        loader: 'sass-loader'
-                    }
-                ]
+                        loader: 'sass-loader',
+                    },
+                ],
             },
             {
                 test: /\.(gif|jpg?g|png|svg|woff|eot|ttf|ico)\??.*$/,
                 loader: 'url-loader',
                 options: {
                     limit: 100,
-                    name: '../public/images/[name].[ext]'
-                }
-            }
+                    name: '../public/images/[name].[ext]',
+                },
+            },
         ],
     },
     plugins: [
@@ -128,19 +128,33 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname,'../public/static'),
+                    from: path.resolve(__dirname, '../public/static'),
                     to: 'static',
-                }
-            ]
+                },
+                {
+                    from: path.resolve(__dirname, '../public/sw.js'),
+                    to: '.',
+                },
+            ],
         }),
         new HtmlWebpackPlugin({
-            title: "app",
+            title: 'app',
             // inject: true,
             inject: 'body',
             showErrors: true,
-            template: path.resolve(__dirname, '../public/index.html')
+            template: path.resolve(__dirname, '../public/index.html'),
+            filename: 'index.html',
+            chunks: ['main'],
         }),
-
+        new HtmlWebpackPlugin({
+            title: 'worker',
+            // inject: true,
+            inject: 'body',
+            showErrors: true,
+            template: path.resolve(__dirname, '../public/index.html'),
+            filename: 'worker.html',
+            chunks: ['worker'],
+        }),
     ],
     optimization: {
         minimize: false,
@@ -150,21 +164,20 @@ module.exports = {
             // name: 'vendor',
             cacheGroups: {
                 antd: {
-                    chunks: "all",
+                    chunks: 'all',
                     test: /antd|@ant-design|rc-\S+|moment/,
                     name: 'antd',
-                    priority: 30
+                    priority: 30,
                 },
                 vendor: {
-                    chunks: "all",
-                    test:  /react|react-dom|lodash|redux|md5|prop-types|react-redux|rxjs/,
-                    name: "vendor",
+                    chunks: 'all',
+                    test: /react|react-dom|lodash|redux|md5|prop-types|react-redux|rxjs/,
+                    name: 'vendor',
                     priority: 30,
-                }
-            }
-        }
+                },
+            },
+        },
     },
-    stats: "errors-only",
-    externals:{
-    }
+    stats: 'errors-only',
+    externals: {},
 }

@@ -4,9 +4,11 @@
   "description": "A minimal Electron application tools",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "build": "electron-builder --win --x64",
+    "start": "cross-env NODE_ENV=development electron .",
+    "build": "cross-env NODE_ENV=production electron-builder --win --x64",
+    "rebuildnew": "npm rebuild --runtime=electron --target=17.2.0 --disturl=https://atom.io/download/atom-shell --abi=101",
     "dev": "yarn && yarn main:dev && yarn copy && yarn start",
+    "pro": "yarn && yarn main:build && yarn copy && yarn build",
     "copy": "node ./scripts/copy.js",
     "main:dev": "cd ../pages/main && yarn dev",
     "main:build": "cd ../pages/main && yarn build"
@@ -26,7 +28,14 @@
     "url": "https://github.com/qingniaofly/mini-app-tools/issues"
   },
   "build": {
+    "productName": "mini-tools",
     "appId": "com.yctao.electron.app",
+    "extraResources": [
+      {
+        "from": "./config.json",
+        "to": "../"
+      }
+    ],
     "mac": {
       "target": [
         "dmg",
@@ -43,13 +52,16 @@
     }
   },
   "dependencies": {
-    "bufferhelper": "^0.2.1",
-    "iconv-lite": "^0.6.3",
+    "electron-debug": "^3.2.0",
+    "fs-extra": "^11.1.0",
     "loadsh": "^0.0.4",
+    "log4js": "^6.9.1",
     "thirdparty-sdk": "^0.0.1"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "electron": "^17.2.0",
-    "electron-builder": "^23.0.3"
+    "electron-builder": "^23.0.3",
+    "node-abi": "^3.33.0"
   }
 }

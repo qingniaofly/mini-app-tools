@@ -1,5 +1,6 @@
 import React, { memo, useEffect, useRef, useState } from 'react'
 import ReactImageViewer from 'react-image-viewers'
+import TransitionPage from '../../components/transitionPage'
 import 'react-image-viewers/lib/esm/index.css'
 import './index.scss'
 
@@ -67,36 +68,41 @@ function Image() {
             </div>
             <div style={{ padding: 10 }}>{imageStyle && JSON.stringify(imageStyle)}</div>
             <div className="image-viewer">
-                <ReactImageViewer
-                    ref={reactImageViewerRef}
-                    url={imageUrl}
-                    isDebug={true}
-                    timeout={5000}
-                    onLoadStart={(url) => {
-                        console.log(`ReactImageViewer Image LoadStart:: url=${url}`)
-                        setLoading(true)
-                    }}
-                    onLoad={(image) => {
-                        const { width, height } = image
-                        console.log(`ReactImageViewer Image Load:: width=${width},height=${height}`)
-                        setLoading(false)
-                    }}
-                    onLoadError={(err) => {
-                        console.error(`ReactImageViewer Image LoadError:: error=${JSON.stringify(err)}`)
-                        setLoading(false)
-                    }}
-                    onStyleChange={(opts) => {
-                        console.log(`ReactImageViewer Image StyleChange:: options=${JSON.stringify(opts)}`)
-                        setImageStyle(opts)
-                    }}
-                    config={{
-                        perRotate: 10,
-                        translateTouchType: 'mousewheel',
-                    }}
-                />
+                {imageUrl && (
+                    <ReactImageViewer
+                        ref={reactImageViewerRef}
+                        className={''}
+                        url={imageUrl}
+                        isDebug={true}
+                        timeout={5000}
+                        onLoadStart={(url) => {
+                            console.log(`ReactImageViewer Image LoadStart:: url=${url}`)
+                            setLoading(true)
+                        }}
+                        onLoad={(image) => {
+                            const { width, height } = image
+                            console.log(`ReactImageViewer Image Load:: width=${width},height=${height}`)
+                            setLoading(false)
+                        }}
+                        onLoadError={(err) => {
+                            console.error(`ReactImageViewer Image LoadError:: error=${JSON.stringify(err)}`)
+                            setLoading(false)
+                        }}
+                        onStyleChange={(opts) => {
+                            console.log(`ReactImageViewer Image StyleChange:: options=${JSON.stringify(opts)}`)
+                            setImageStyle(opts)
+                        }}
+                        config={{
+                            perRotate: 10,
+                            translateTouchType: 'mousewheel',
+                        }}
+                    />
+                )}
                 {loading && (
                     <div className="image-loading-container">
-                        <div className="image-loading">Loading...</div>
+                        {/* <DetailSkeleton /> */}
+                        <TransitionPage />
+                        {/* <div className="image-loading">Loading...</div> */}
                     </div>
                 )}
             </div>

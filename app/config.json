@@ -1,0 +1,19 @@
+{
+    "baseUrl": ".",
+    "filePath": "/public/pages/main",
+    "mainUrl": "/index.html#",
+    "mainRoute": "/",
+    "logFilePath": "./logs",
+    "openDevTools": true,
+    "menus": [
+        {
+            "name": "菜单",
+            "children": [{ "name": "首页", "url": "/" }, { "name": "音乐", "url": "/music" }, { "name": "图片", "url": "/image" },{ "name": "关于", "url": "/about" }]
+        },
+        {
+            "name": "帮助",
+            "children": [{ "name": "开发者工具", "key": "openDevTools" }, { "name": "关于" }]
+        }
+        
+    ]
+}

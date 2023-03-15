@@ -1,23 +1,51 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import { storeAction } from './store/actions'
-import { SDKBox } from './SDK'
+import { SDKBox, ElectronBox } from './SDK'
 import Music from './views/music'
 import Novel from './views/novel'
 import Image from './views/image'
 import { IRootState } from './store/type'
 import './style/common.scss'
 import '@babel/polyfill'
+import useTask from './hooks/useWorker'
+import useKeyboardEvent from './hooks/useKeyboardEvent'
+import windowUtil from './SDK/window'
 
 const Home = () => {
     const dispatch = useDispatch()
+    const [msg, setMsg] = useState('')
     useEffect(() => {
+        ElectronBox.get().eventService.on('message-to-renderer', (_, args) => {
+            console.log('render:', args)
+            setMsg(args)
+        })
+
         setTimeout(() => {
             dispatch(storeAction.test('小王12'))
         }, 3000)
     }, [])
-    return <div>hello world</div>
+    return (
+        <div>
+            hello world
+            <button
+                onClick={() => {
+                    windowUtil.open('/worker.html', { winId: 'worker', aaa: 123 })
+                }}
+            >
+                打开worker
+            </button>
+            <button
+                onClick={() => {
+                    ElectronBox.get().eventService.send('message-from-renderer', { type: 'render', data: `from-renderer:${new Date().getTime()}` })
+                }}
+            >
+                发消息
+            </button>
+            {JSON.stringify(msg)}
+        </div>
+    )
 }
 
 const routeConfig = [
@@ -98,8 +126,14 @@ const App = () => {
     //     })
     // }, [])
 
+    useKeyboardEvent()
+    useTask()
+
     useEffect(() => {
-        
+        ElectronBox.get().eventService.on('crash-file-path', (event, args) => {
+            console.warn('crash-file-path:', args)
+        })
+
         const onRouteChange = (_, data) => {
             console.log(`E_GLOBAL_EVENT.ROUTE_CHANGE data=${JSON.stringify(data)}`)
             navigate(data?.url)

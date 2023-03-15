@@ -1,0 +1,37 @@
+@arcSkeletonPrefix: arc-skeleton;
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+.@{arcSkeletonPrefix}{
+  --width: 100%;
+  --height: 0;
+  --border-radius: 4;
+  background-color: rgba(235, 238, 238, 1);
+  border-radius: var(--border-radius);
+  width: var(--width);
+  height: var(--height);
+  display: block;
+  &-title{
+    --width: 45%;
+    --height: 32px;
+    --border-radius: 2px;
+    margin-bottom: 16px;
+    margin-top: 16px;
+  }
+  &-paragraph-line{
+    --height: 18px;
+    --border-radius: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  &-animated{
+    background: linear-gradient(90deg, rgba(235, 238, 238, 1) 25%, rgba(238, 238, 238, 0.6) 37%, rgba(235, 238, 238, 1) 63%);
+    background-size: 400% 100%;
+    animation: skeleton-loading 1.4s ease infinite;
+  }
+}
